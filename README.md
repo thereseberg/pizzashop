@@ -1,6 +1,6 @@
 # Pizza Webshop
 
-School project that simulates a pizza webshop. Built with Asp.Net MVC and SQL Server
+School project that simulates a pizza webshop. Built with ASP.NET MVC and SQL Server
 
 **Startpage**<br>
 <img src="https://github.com/thereseberg/pizzashop/blob/master/Images/startpage.jpg" height="500">
