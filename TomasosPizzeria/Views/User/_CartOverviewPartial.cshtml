@@ -1,0 +1,23 @@
+﻿@model List<TomasosPizzeria.Models.Matratt>
+
+<h4 class="menu-head-info">Varukorg</h4>
+<hr />
+<table class="table-user">
+    @foreach (var item in Model)
+    {
+        <tr class="tr-user">
+            <td class="td-user">@item.MatrattNamn</td>
+            <td class="td-user">@item.Pris kr</td>
+        </tr>
+    }
+</table>
+<hr />
+<table class="table-user">   
+    <tr class="tr-user">
+        <td class="td-style">Summa:</td>
+        <td class="td-style">@Model.Sum(p => p.Pris) kr</td>
+    </tr>
+</table>
+
+<p>Eventuella rabatter dras av i kassan</p>
+<a id="partial-checkout-button" class="btn btn-outline-dark" asp-controller="User" asp-action="UserCheckout">Beställ mat</a>

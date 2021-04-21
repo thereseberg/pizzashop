@@ -1,0 +1,121 @@
+﻿@model TomasosPizzeria.ViewModels.ManageFoodViewModel
+<div id="food-div">
+    <div id="foodlist">
+        <h4 class="menu-head-info">Maträtter</h4>
+        <table>
+            @foreach (var matratt in Model.matratter)
+            {
+                <tr>
+                    <td>@matratt.MatrattTyp.Beskrivning</td>
+                    <td>@matratt.MatrattNamn</td>
+                    <td>
+                        <a class="btn btn-outline-dark btn-sm"
+                           asp-controller="Admin"
+                           asp-action="ViewFood"
+                           asp-route-id="@matratt.MatrattId"
+                           data-ajax="true"
+                           data-ajax-method="GET"
+                           data-ajax-mode="replace"
+                           data-ajax-update="#foodoverview">
+                            Redigera
+                        </a>
+                    </td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="DeleteFood" asp-route-id="@matratt.MatrattId" method="post">
+                            <button class="btn btn-outline-danger btn-sm" type="submit">Ta bort</button>
+                        </form>
+                        @*<a asp-controller="Admin" 
+                           asp-action="DeleteFood" 
+                           asp-route-id="@matratt.MatrattId"
+                           method="post">
+                        Ta bort maträtt
+                        </a>*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        <p>@TempData["DeleteFood"]</p>
+    </div>
+
+    <div id="foodoverview">
+        <h4 class="menu-head-info">Redigera maträtt</h4>
+        <label>Namn</label>
+        <input type="text" />
+        <br /><br />
+        <label>Maträttstyp</label>
+        <select asp-items="@Model.SelectListMatrattTyper"></select>
+        <br /><br />
+        <label>Beskrivning</label>
+        <br />
+        <textarea class="textarea-description" rows="4" cols="50" maxlength="200"></textarea>
+        <br /><br />
+        <ul class="checkboxes-list">
+            @for (int i = 0; i < Model.ingredients.Count; i++)
+            {
+                <li>
+                    <input type="checkbox" />@Model.ingredients[i].ProduktNamn
+                </li>
+            }
+        </ul>
+
+        <label>Pris</label>
+        <input type="text" />
+        <br /><br />
+        <button id="edit-food-button" class="btn btn-outline-dark btn-sm">Uppdatera</button>
+        <br />
+        <p>@TempData["EditFood"]</p>
+    </div>
+
+    <!--Div för att lägga till ny maträtt-->
+    <div id="addfood">
+        <h4 class="menu-head-info">Lägg till ny maträtt</h4>
+        <form asp-controller="Admin" asp-action="AddFood" method="post">
+            <label asp-for="CurrentMatratt.MatrattNamn"></label>
+            <input type="text" asp-for="CurrentMatratt.MatrattNamn" />
+            <span class="fail" asp-validation-for="CurrentMatratt.MatrattNamn"></span>
+            <br /><br />
+            <label asp-for="CurrentMatratt.MatrattTyp"></label>
+            <select asp-for="CurrentMatratt.MatrattTypId" asp-items="@Model.SelectListMatrattTyper"></select>
+            <span class="fail" asp-validation-for="CurrentMatratt.MatrattTypId"></span>
+            <br /><br />
+            <label asp-for="CurrentMatratt.Beskrivning"></label>
+            <br />
+            <textarea asp-for="CurrentMatratt.Beskrivning" class="textarea-description" rows="4" cols="50" maxlength="200"></textarea>
+            <br /><br />
+            @*<table>
+            @for (int i = 0; i < Model.ingredients.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" asp-for="@Model.ingredients[i].IsChecked" />@Model.ingredients[i].ProduktNamn
+                        <input type="hidden" asp-for="@Model.ingredients[i].ProduktId" />
+                    </td>
+                </tr>
+            }
+        </table>*@
+            <ul class="checkboxes-list">
+                @for (int i = 0; i < Model.ingredients.Count; i++)
+                {
+
+                    <li>
+                        <input type="checkbox" asp-for="@Model.ingredients[i].IsChecked" class="checkbox-admin" />@Model.ingredients[i].ProduktNamn
+                        <input type="hidden" asp-for="@Model.ingredients[i].ProduktId" />
+                        <input type="hidden" asp-for="@Model.ingredients[i].ProduktNamn" />
+                    </li>
+                }
+            </ul>
+
+            <label asp-for="CurrentMatratt.Pris"></label>
+            <input type="text" asp-for="CurrentMatratt.Pris" />
+            <span class="fail" asp-validation-for="CurrentMatratt.Pris"></span>
+            <br /><br />
+            <button id="add-food-button" class="btn btn-outline-dark btn-sm" type="submit">Lägg till</button>
+            <br />
+            <p>@TempData["AddFood"]</p>
+        </form>
+    </div>
+</div>
+
+

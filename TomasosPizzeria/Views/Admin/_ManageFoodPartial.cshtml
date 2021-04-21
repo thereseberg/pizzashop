@@ -1,0 +1,36 @@
+﻿@model TomasosPizzeria.ViewModels.ManageFoodViewModel
+
+<form asp-controller="Admin" asp-action="UpdateFood" method="post">
+    <h4 class="menu-head-info">Redigera maträtt</h4>
+    <label asp-for="CurrentMatratt.MatrattNamn"></label>
+    <input type="text" asp-for="CurrentMatratt.MatrattNamn" />
+    <span class="fail" asp-validation-for="CurrentMatratt.MatrattNamn"></span>
+    <input type="hidden" asp-for="CurrentMatratt.MatrattId" />
+    <br /><br />
+    <label asp-for="CurrentMatratt.MatrattTyp"></label>
+    <select asp-for="CurrentMatratt.MatrattTypId" asp-items="@Model.SelectListMatrattTyper"></select>
+    <span class="fail" asp-validation-for="CurrentMatratt.MatrattTypId"></span>
+    <br /><br />
+    <label asp-for="CurrentMatratt.Beskrivning"></label>
+    <br />
+    <textarea asp-for="CurrentMatratt.Beskrivning" class="textarea-description" rows="4" cols="50" maxlength="200"></textarea>
+    <br /><br />
+    <ul class="checkboxes-list">
+        @for (int i = 0; i < Model.ingredients.Count; i++)
+        {
+            <li>
+                <input type="checkbox" asp-for="@Model.ingredients[i].IsChecked" />@Model.ingredients[i].ProduktNamn
+                <input type="hidden" asp-for="@Model.ingredients[i].ProduktId" />
+                <input type="hidden" asp-for="@Model.ingredients[i].ProduktNamn" />
+            </li>
+        }
+    </ul>
+
+    <label asp-for="CurrentMatratt.Pris"></label>
+    <input type="text" asp-for="CurrentMatratt.Pris" />
+    <span class="fail" asp-validation-for="CurrentMatratt.Pris"></span>
+    <br /><br />
+    <button id="edit-food-partial-button" class="btn btn-outline-dark btn-sm" type="submit">Uppdatera</button>
+    <br />
+
+</form>

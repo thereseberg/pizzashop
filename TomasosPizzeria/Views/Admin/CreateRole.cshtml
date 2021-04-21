@@ -1,0 +1,17 @@
+﻿@model TomasosPizzeria.ViewModels.CreateRoleViewModel
+
+<h3>Skapa ny roll:</h3>
+
+<form asp-controller="Admin" asp-action="CreateRole" method="post">
+
+    <label asp-for="Name"></label>
+    <input type="text" asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <br /><br />
+
+    <input type="submit" value="Skapa roll" />
+
+
+
+</form>

@@ -1,0 +1,54 @@
+﻿@model TomasosPizzeria.ViewModels.ManageIngredientsViewModel
+<div id="ingredient-div">
+    <div id="ingredientlist">
+        <h4 class="menu-head-info">Ingredienser</h4>
+        <table>
+            @foreach (var ingredient in Model.ListProducts)
+            {
+                <tr>
+                    <td class="ingredient-list-td">@ingredient.ProduktNamn</td>
+                    <td>
+                        <a class="btn btn-outline-dark btn-sm"
+                           asp-controller="Admin"
+                           asp-action="ViewIngredient"
+                           asp-route-id="@ingredient.ProduktId"
+                           data-ajax="true"
+                           data-ajax-method="GET"
+                           data-ajax-mode="replace"
+                           data-ajax-update="#ingredientoverview">
+                            Redigera
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div id="ingredientoverview">
+        <h4 class="menu-head-info">Redigera</h4>
+        <label>Ingrediens</label>
+        <br />
+        <input type="text" />
+        <br /><br />
+        <a class="btn btn-outline-danger btn-sm">Ta bort</a>
+        <button class="btn btn-outline-dark btn-sm">Uppdatera</button>
+        <p>@TempData["EditIngredient"]</p>
+    </div>
+
+    <div id="add-ingredient">
+        <h4 class="menu-head-info">Lägg till ny</h4>
+        <form asp-controller="Admin" asp-action="AddIngredient" method="post">
+            <label asp-for="NewProduct.ProduktNamn"></label>
+            <br />
+            <input type="text" asp-for="NewProduct.ProduktNamn" />
+            <br />
+            <span class="fail" asp-validation-for="NewProduct.ProduktNamn"></span>
+            <br />
+            <button class="btn btn-outline-dark btn-sm" type="submit">Lägg till</button>
+            <p>@ViewBag.AddIngredientMessage</p>
+        </form>
+    </div>
+
+
+    
+
+</div>

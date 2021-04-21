@@ -1,0 +1,83 @@
+﻿@model TomasosPizzeria.ViewModels.LoginViewModel
+<!--<h3>Ange dina uppgifter:</h3>-->
+<div class="container" id="account-login-register-container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sign Up</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <form asp-controller="Account" asp-action="LogIn" method="post" class="login-register-forms">
+                <br />
+                <label asp-for="UserLogin.Username"></label>
+                <input type="text" autofocus="autofocus" asp-for="UserLogin.Username" />
+                <br />
+                <span class="fail" asp-validation-for="UserLogin.Username"></span>
+                <br />
+                <label asp-for="UserLogin.Password"></label>
+                <input type="password" asp-for="UserLogin.Password" />
+                <br />
+                <span class="fail" asp-validation-for="UserLogin.Password"></span>
+                <br />
+                <p class="fail">@ViewBag.MessageFailLogin</p>
+                <input type="submit" value="Logga in" id="login-button-startpage" class="btn btn-outline-dark" />
+            </form>
+            
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <form asp-controller="Account" asp-action="Register" method="post" class="login-register-forms">
+                <br />
+                <label asp-for="RegisterUser.Namn"></label>
+                <input type="text" asp-for="RegisterUser.Namn" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Namn"></span>
+                <br />
+                <label asp-for="RegisterUser.AnvandarNamn"></label>
+                <input type="text" asp-for="RegisterUser.AnvandarNamn" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.AnvandarNamn"></span>
+                <br />
+                <label asp-for="RegisterUser.Email"></label>
+                <input type="email" asp-for="RegisterUser.Email" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Email"></span>
+                <br />
+                <label asp-for="RegisterUser.Losenord"></label>
+                <input type="text" asp-for="RegisterUser.Losenord" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Losenord"></span>
+                <br />
+                <label asp-for="RegisterUser.Gatuadress"></label>
+                <input type="text" asp-for="RegisterUser.Gatuadress" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Gatuadress"></span>
+                <br />
+                <label asp-for="RegisterUser.Postnr"></label>
+                <input type="text" asp-for="RegisterUser.Postnr" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Postnr"></span>
+                <br />
+                <label asp-for="RegisterUser.Postort"></label>
+                <input type="text" asp-for="RegisterUser.Postort" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Postort"></span>
+                <br />
+                <label asp-for="RegisterUser.Telefon"></label>
+                <input type="text" asp-for="RegisterUser.Telefon" />
+                <br />
+                <span class="fail" asp-validation-for="RegisterUser.Telefon"></span>
+                <br /><br />
+                <input type="submit" value="Skapa konto" id="register-button-startpage" class="btn btn-outline-dark" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--<a asp-controller="Account" asp-action="Register">Skapa ett nytt konto</a>-->
+
+

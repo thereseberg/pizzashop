@@ -1,0 +1,52 @@
+﻿@model TomasosPizzeria.ViewModels.UserViewModel 
+<div id="checkout-container">
+    <h4 class="menu-head-info">Kassa</h4>
+    <hr />
+    @if (Model.CurrentOrderFood.Count > 0)
+    {
+        <table class="table-user">
+            @foreach (var food in Model.CurrentOrderFood)
+            {
+                <tr class="tr-user">
+                    <td class="td-user">@food.MatrattNamn</td>
+                    <td class="td-user">@food.Pris kr</td>
+                    <td class="td-user">
+                        <a asp-controller="User"
+                           asp-action="RemoveProduct"
+                           asp-route-id="@food.MatrattId"
+                           class="btn btn-outline-danger btn-sm">
+                            Ta bort
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <hr />
+        <table class="table-user">
+            <tr class="tr-user">
+                @if (Model.Discount != 0)
+                {
+                    <td class="td-user">Rabatt:</td>
+                    <td class="td-user">- @Model.Discount kr</td>
+                }
+
+            </tr>
+            <tr class="tr-user">
+                <td class="td-style">Summa:</td>
+                <td class="td-style">@Model.CurrentOrder.Totalbelopp kr</td>
+                <td class="td-user"></td>
+            </tr>
+        </table>
+        <hr />
+        <form asp-controller="User" asp-action="UserCheckout" method="post">
+            <input type="hidden" asp-for="CurrentOrder.Id" />
+            <input type="hidden" asp-for="CurrentUser.Points" />
+            <input type="hidden" asp-for="CurrentOrder.Totalbelopp" />
+            <button type="submit" class="btn btn-outline-dark" id="checkout-button">Beställ</button>
+        </form>
+    }
+    else
+    {
+        <p class="menu-head-info">Varukorgen är tom</p>
+    }
+</div>

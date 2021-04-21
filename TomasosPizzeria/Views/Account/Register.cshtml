@@ -1,0 +1,48 @@
+﻿@model TomasosPizzeria.Models.User
+
+<h3>Ange dina uppgifter:</h3>
+
+<form asp-controller="Account" asp-action="Register" method="post">
+
+    <label asp-for="Namn"></label>
+    <input type="text" asp-for="Namn" />
+
+    <br /><br />
+
+    <label asp-for="AnvandarNamn"></label>
+    <input type="text" asp-for="AnvandarNamn" />
+
+    <br /><br />
+
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email" />
+
+    <br /><br />
+
+    <label asp-for="Losenord"></label>
+    <input type="text" asp-for="Losenord" />
+
+    <br /><br />
+
+    <label asp-for="Gatuadress"></label>
+    <input type="text" asp-for="Gatuadress" />
+
+    <br /><br />
+
+    <label asp-for="Postnr"></label>
+    <input type="text" asp-for="Postnr" />
+
+    <br /><br />
+
+    <label asp-for="Postort"></label>
+    <input type="text" asp-for="Postort" />
+
+    <br /><br />
+
+    <input type="submit" value="Skapa konto" />
+
+
+
+</form>
+
+<p>@ViewBag.Error</p>

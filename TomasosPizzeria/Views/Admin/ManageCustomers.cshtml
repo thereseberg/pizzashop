@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TomasosPizzeria.IdentityData.ApplicationUser>
+<div id="manage-customers">
+    
+
+    <div id="customerlist">
+        <h5 class="menu-head-info">Alla kunder</h5>
+        <table>
+            <tr>
+                <th class="manage-customers">Kundnamn</th>
+                <th class="manage-customers">Email</th>
+            </tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td class="manage-customers-inner">@user.Namn</td>
+                    <td class="manage-customers-inner">@user.Email</td>
+                    <td>
+                        <a class="btn btn-outline-dark btn-sm"
+                           asp-controller="Admin"
+                           asp-action="ViewCustomer"
+                           asp-route-id="@user.Id"
+                           data-ajax="true"
+                           data-ajax-method="GET"
+                           data-ajax-mode="replace"
+                           data-ajax-update="#customeroverview">
+                            Visa kundinfo
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div id="customeroverview">
+        <h5 class="menu-head-info">Kundinfo</h5>
+        <p>Kundnamn:</p>
+        <p>Användarnamn:</p>
+        <p>Email:</p>
+        <p>Medlemsskap:</p>
+
+    </div>
+</div>

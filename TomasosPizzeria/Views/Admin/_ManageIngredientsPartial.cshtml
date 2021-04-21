@@ -1,0 +1,27 @@
+﻿@model TomasosPizzeria.Models.Produkt
+
+
+
+<h4 class="menu-head-info">Redigera</h4>
+<form class="ingredient-update-form" asp-controller="Admin" asp-action="UpdateIngredient" method="post">
+    <label asp-for="ProduktNamn"></label>
+    <br />
+    <input type="hidden" asp-for="ProduktId" />
+    <input type="text" asp-for="ProduktNamn" />
+    <span class="fail" asp-validation-for="ProduktNamn"></span>
+    <br /><br />
+    <button class="btn btn-outline-dark btn-sm" type="submit">Uppdatera</button>
+
+</form>
+
+@*<a class="btn btn-outline-danger btn-sm"
+   asp-controller="Admin"
+   asp-action="DeleteIngredient"
+   asp-route-id="@Model.ProduktId">
+    Ta bort
+</a>*@
+<form class="ingredient-update-form-delete" asp-controller="Admin" asp-action="DeleteIngredient" method="post" asp-route-id="@Model.ProduktId">
+    <button class="btn btn-outline-danger btn-sm" type="submit">Ta bort</button>
+    <p>@ViewBag.DeleteIngredientMessage</p>
+</form>
+<p>@ViewBag.UpdateIngredientMessage</p>

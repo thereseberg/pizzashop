@@ -1,0 +1,19 @@
+﻿@{
+    var controller = ViewContext.HttpContext.Request.RouteValues["Controller"].ToString();
+
+    string cLayout = "";
+    if (controller == "User")
+    {
+        cLayout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+    else if (controller == "Admin")
+    {
+        cLayout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        cLayout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    Layout = cLayout;
+}

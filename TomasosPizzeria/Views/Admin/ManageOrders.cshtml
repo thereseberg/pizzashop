@@ -1,0 +1,48 @@
+﻿@model List<TomasosPizzeria.Models.AspNetUser>
+<div class="admin-container" id="table-orders">
+    <h3 class="menu-head-info">Ordrar</h3>
+    <table class="table-admin">
+        <tr class="tr-admin">
+            <th>Datum</th>
+            <th>Kund</th>
+            <th>Summa</th>
+            <th>Orderstatus</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            @foreach (var order in customer.Bestallnings.OrderByDescending(o => o.BestallningDatum))
+            {
+                <tr class="tr-admin">
+                    <td class="td-admin">@order.BestallningDatum.ToShortDateString()</td>
+                    <td class="td-admin">@customer.Namn</td>
+                    <td class="td-admin">@order.Totalbelopp</td>
+                    @if (order.Levererad)
+                    {
+                        <td class="td-admin">Levererad</td>
+                    }
+                    else
+                    {
+                        <td class="td-admin">Ej levererad</td>
+                    }
+                    <td class="td-admin">
+                        <a class="btn btn-outline-dark btn-sm"
+                           asp-controller="Admin"
+                            asp-action="UpdateOrderStatus"
+                            asp-route-id="@order.BestallningId">
+                            Ändra orderstatus
+                        </a>
+                    </td>
+                    <td class="td-admin">
+                        <a class="btn btn-outline-danger btn-sm"
+                           asp-controller="Admin"
+                            asp-action="DeleteOrder"
+                            asp-route-id="@order.BestallningId">
+                            Ta bort order
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <p>@TempData["RemoveOrder"]</p>
+</div>

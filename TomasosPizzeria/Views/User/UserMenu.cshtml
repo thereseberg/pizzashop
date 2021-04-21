@@ -1,0 +1,79 @@
+﻿@model TomasosPizzeria.ViewModels.UserViewModel
+<div id="div-menu-container">
+    <div id="menu-div">
+        <div id="pizza-div">
+            <h5 class="menu-head-info">Pizza</h5>
+            @foreach (var item in Model.Pizzas)
+            {
+                <h6>@item.MatrattNamn</h6>
+                @foreach (var ingredient in item.MatrattProdukts)
+                {
+                    <span>@ingredient.Produkt.ProduktNamn</span>
+                }
+                <br />
+                <label>@item.Pris kr</label>
+                <a asp-controller="User"
+                    asp-action="AddProduct"
+                    asp-route-id="@item.MatrattId"
+                    data-ajax="true"
+                    data-ajax-method="GET"
+                    data-ajax-mode="replace"
+                    data-ajax-update="#cartoverview">
+                    Köp
+                </a>
+            }
+        </div>
+
+        <div id="pasta-div">
+            <h5 class="menu-head-info">Pasta</h5>
+            @foreach (var item in Model.Pastas)
+            {
+                <h6>@item.MatrattNamn</h6>
+                @foreach (var ingredient in item.MatrattProdukts)
+                {
+                    <span>@ingredient.Produkt.ProduktNamn</span>
+                }
+                <br />
+                <label>@item.Pris kr</label>
+                <a asp-controller="User"
+                    asp-action="AddProduct"
+                    asp-route-id="@item.MatrattId"
+                    data-ajax="true"
+                    data-ajax-method="GET"
+                    data-ajax-mode="replace"
+                    data-ajax-update="#cartoverview">
+                    Köp
+                </a>
+            }
+        </div>
+
+        <div id="sallad-div">
+            <h5 class="menu-head-info">Sallad</h5>
+            @foreach (var item in Model.Sallads)
+            {
+                <h6>@item.MatrattNamn</h6>
+                @foreach (var ingredient in item.MatrattProdukts)
+                {
+                    <span>@ingredient.Produkt.ProduktNamn</span>
+                }
+                <br />
+                <label>@item.Pris kr</label>
+                <a asp-controller="User"
+                    asp-action="AddProduct"
+                    asp-route-id="@item.MatrattId"
+                    data-ajax="true"
+                    data-ajax-method="GET"
+                    data-ajax-mode="replace"
+                    data-ajax-update="#cartoverview">
+                    Köp
+                </a>
+            }
+        </div>
+
+    </div>
+
+    <div id="cartoverview">
+        <h4 class="menu-head-info">Varukorg</h4>
+
+    </div>
+</div>

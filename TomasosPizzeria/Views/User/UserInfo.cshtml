@@ -1,0 +1,51 @@
+﻿@model TomasosPizzeria.Models.User
+<div id="user-info-container">
+    <h4 class="menu-head-info">Kunduppgifter</h4>
+    <hr />
+    <form id="user-info-form" asp-controller="User" asp-action="UpdateUserInfo" method="post">
+        <label asp-for="Namn"></label>
+        <input type="text" asp-for="Namn" />
+        <span asp-validation-for="Namn"></span>
+        <br />
+        <label asp-for="AnvandarNamn"></label>
+        <input type="text" asp-for="AnvandarNamn" />
+        <span asp-validation-for="AnvandarNamn"></span>
+        <br />
+        <label asp-for="Email"></label>
+        <input type="email" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+        <br />
+        <label asp-for="Telefon"></label>
+        <input type="text" asp-for="Telefon" />
+        <span asp-validation-for="Telefon"></span>
+        <br />
+        <label asp-for="Gatuadress"></label>
+        <input type="text" asp-for="Gatuadress" />
+        <span asp-validation-for="Gatuadress"></span>
+        <br />
+        <label asp-for="Postnr"></label>
+        <input type="text" asp-for="Postnr" />
+        <span asp-validation-for="Postnr"></span>
+        <br />
+        <label asp-for="Postort"></label>
+        <input type="text" asp-for="Postort" />
+        <span asp-validation-for="Postort"></span>
+
+        <input type="hidden" asp-for="Losenord" />
+
+        <br />
+        @if (User.IsInRole("RegularUser"))
+        {
+            <p>Medlemsskap: Regular</p>
+        }
+        else if (User.IsInRole("PremiumUser"))
+        {
+            <p>Medlemsskap: Premium</p>
+            <p>Poäng: @Model.Points</p>
+        }
+        <hr />
+        <button type="submit" id="update-user-info-button" class="btn btn-outline-dark">Uppdatera kunduppgifter</button>
+    </form>
+</div>
+
+

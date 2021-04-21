@@ -1,0 +1,378 @@
+﻿header {
+    background-image: url(../images/pizza-time-tasty-homemade-traditional-pizza-italian-recipe.jpg);
+    background-size: cover;
+    height: 180px;
+}
+
+body {
+    background-image: url(../images/pizza-ingredients-on-dark-concrete-background-neapolitan-pizza-cooking-concept.jpg);
+    background-size: cover;
+}
+
+#header-logo{
+    margin-left: 20px;
+    margin-top: 15px;
+    height: 150px;
+}
+
+hr{
+    background-color: #939292;
+}
+
+.navbar {
+    background-color: #000000 !important;
+    opacity: 0.8;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+    opacity: 0.8;
+}
+
+#home-tab, #profile-tab {
+    color: black;
+    background: rgba(255,255,255,0.8);
+}
+
+#account-login-register-container {
+    width: 25%;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.8);
+}
+
+.login-register-forms > label {
+    display: inline-block;
+    width: 120px;
+}
+
+.fail{
+    color: red;
+}
+
+/*ADMIN REDIGERA INGREDIENSER*/
+#ingredient-div {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgba(255,255,255,0.9);
+    margin: auto;
+    margin-top: 40px;
+    height: 630px;
+    width: 60%;
+    overflow: hidden;
+}
+#ingredientlist, #ingredientoverview, #add-ingredient {
+    float: left;
+    height: 100% !important;
+    width: 33%;
+}
+
+#ingredientlist, #ingredientoverview {
+    border-right-style: solid;
+    border-color: #939292;
+    border-width: 1px;
+}
+
+#ingredientoverview, #add-ingredient {
+    padding-left: 30px;
+}
+
+#ingredientlist > table {
+    margin-left: 40px;
+}
+ 
+.ingredient-update-form {
+    display: inline;
+}
+
+.ingredient-update-form-delete {
+    width: 65px;
+    float: left;
+}
+
+.ingredient-list-td {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.admin-container {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    margin: auto;
+    margin-top: 50px;
+}
+
+#table-orders{
+    width: 50%;
+}
+
+.table-admin, .tr-admin {
+    width: 100%;
+}
+
+.td-admin {
+    width: 16%;
+}
+
+#admin-main {
+    width: 30%;
+}
+/*ADMIN REDIGERA MATRÄTTER*/
+#food-div {
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    height: 630px;
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-right: 0px;
+}
+
+
+.checkboxes-list{
+    column-count: 3;
+    list-style-type: none;
+    column-gap: 0px;
+    margin-left: -35px;
+    width: 430px;
+}
+
+#foodlist {
+    float: left;
+    width: 24%;
+    height: 100%;
+}
+
+#foodoverview {
+    float: left;
+    width: 38%;
+    height: 100%;
+}
+
+#foodlist, #foodoverview {
+    border-right-style: solid;
+    border-color: #939292;
+    border-width: 1px;
+}
+
+#addfood {
+    float: left;
+    width: 38%;
+    height: 100%;
+}
+
+#foodoverview, #addfood{
+    padding-left: 30px;
+}
+
+.textarea-description {
+    vertical-align: top;
+}
+
+/*ADMIN REDIGERA KUNDER*/
+#manage-customers {
+    background: rgba(255,255,255,0.9);
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 30px;
+    overflow: hidden;
+    width: 50%;
+    margin: auto;
+    margin-top: 40px;
+    height: 400px;
+    padding: 30px;
+}
+
+#customerlist {
+    float: left;
+    height: 100%;
+    width: 60%;
+    border-right-style: solid;
+    border-color: #939292;
+    border-width: 1px;
+}
+
+#customeroverview {
+    float: left;
+    height: 100%;
+    width: 40%;
+    padding-left: 30px;
+}
+
+.manage-customers {
+    width: 160px;
+}
+
+.manage-customers-inner{
+    width: 170px;
+    padding-right: 20px;
+}
+
+/*USER MENY*/
+#menu-div {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 30px;
+    height: 630px;
+    width: 60%;
+    float: left;
+    background: rgba(255,255,255,0.9);
+    margin-left: 130px;
+}
+
+#pizza-div, #pasta-div {
+    float: left;
+    width: 33.33%;
+    height: 100%;
+    border-right-style: solid;
+    border-color: #939292;
+    border-width: 1px;
+}
+
+#pasta-div {
+    padding-left: 30px;
+}
+
+#sallad-div{
+    float: left;
+    width: 33.33%;
+    height: 100%;
+    padding-left: 30px;
+}
+
+.menu-head-info{
+    text-align: center;
+}
+
+#cartoverview {
+    float: left;
+    width: 20%;
+    height: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 100px;
+    background: rgba(255,255,255,0.8);
+}
+
+#checkout-container {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.8);
+}
+
+.td-style {
+    font-weight: bold;
+    width: 33%;
+}
+.table-user, .tr-user {
+    width: 100%;
+}
+
+.td-user {
+    width: 33%;
+}
+
+#checkout-button {
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+}
+
+#partial-checkout-button, #update-user-info-button, #login-button-startpage, #register-button-startpage, #add-food-button, #edit-food-partial-button, #edit-food-button {
+    display: block;
+    margin: 0 auto
+}
+
+#div-menu-container {
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+#user-info-container {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 40px;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.8);
+}
+
+#user-info-form > label {
+    display: inline-block;
+    width: 120px;
+}
+
+#user-new-order-message {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 40px;
+    width: 800px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    background: rgba(255,255,255,0.8);
+}
+
+#start-user-container {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 40px;
+    width: 500px;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    background: rgba(255,255,255,0.8);
+}
+
+

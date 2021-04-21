@@ -1,0 +1,12 @@
+﻿@model TomasosPizzeria.ViewModels.ManageCustomerPartialViewModel
+
+<form asp-controller="Admin" asp-action="ChangeRole" method="post">
+    <h5 class="menu-head-info">Kundinfo</h5>
+    <p>Kundnamn: @Model.EditUser.Namn</p>
+    <p>Användarnamn: @Model.EditUser.UserName</p>
+    <p>Email: @Model.EditUser.Email</p>
+    <p>Medlemsskap: @Model.Roles[0]</p>
+    <input type="hidden" asp-for="@Model.EditUser.Id" />
+    <input type="hidden" asp-for="@Model.Roles[0]" />
+    <button class="btn btn-outline-dark" type="submit">@ViewBag.RoleChange</button>
+</form>
