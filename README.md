@@ -1,6 +1,9 @@
 # Pizza Webshop
 
-An app that simulates a pizza webshop. Built with Asp.Net MVC and SQL Server
+School project that simulates a pizza webshop. Built with Asp.Net MVC and SQL Server
+
+**Startpage**<br>
+<img src="https://github.com/thereseberg/pizzashop/blob/master/Images/startpage.jpg" height="500">
 
 # Prerequisites
 
@@ -12,7 +15,7 @@ To run the app you need following:
 # Getting started
 
 1. Clone this repository
-2. Run the script file in (SSMS). Make sure you have the correct path when you run the script (if you've altered the default-path)
+2. Run the script file pizza-script.sql in SSMS. Make sure you have the correct path when you run the script (if you've altered the default-path)
 3. Press IIS Express (F5)
 
 Existing users to try out:
